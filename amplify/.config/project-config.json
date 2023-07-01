@@ -1,8 +1,5 @@
 {
-  "providers": [
-    "awscloudformation"
-  ],
-  "projectName": "masseffect5e",
+  "projectName": "sw5e",
   "version": "3.1",
   "frontend": "javascript",
   "javascript": {
@@ -10,8 +7,11 @@
     "config": {
       "SourceDir": "/",
       "DistributionDir": "dist",
-      "BuildCommand": "npm run-script build",
-      "StartCommand": "npm run-script serve"
+      "BuildCommand": "npm.cmd run-script build",
+      "StartCommand": "npm.cmd run-script serve"
     }
-  }
+  },
+  "providers": [
+    "awscloudformation"
+  ]
 }

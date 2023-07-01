@@ -86,7 +86,7 @@ type HomebrewVote
 
 type Subscription {
   onCreateBookmarkByUserId(userId: ID!): Bookmark
-    @aws_subscribe(mutations: ["createBookmark"])
+  @aws_subscribe(mutations: ["createBookmark"])
   onDeleteBookmarkByUserId(userId: ID!): Bookmark
-    @aws_subscribe(mutations: ["deleteBookmark"])
+  @aws_subscribe(mutations: ["deleteBookmark"])
 }

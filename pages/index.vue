@@ -2,8 +2,7 @@
   <div>
     <section>
       <v-parallax
-        :src="require(`~/assets/images/parallax/citadel.jpg`)"
-        alt="Mass Effect // The Citadel by grndayfrk14"
+        :src="require(`~/assets/images/parallax/hero.jpg`)"
       >
         <v-row justify="center">
           <v-col
@@ -15,8 +14,8 @@
             class="black--text text-center mt-10"
           >
             <v-img
-              :src="require('~/assets/images/me5e_logo_1200w.png')"
-              alt="Mass Effect 5e logo"
+              :src="require('~/assets/images/sw5e-logo.84b4d7ed.png')"
+              alt="SW5e logo"
               class="mt-10"
             />
             <h1 class="sr-only">
