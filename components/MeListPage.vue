@@ -39,7 +39,7 @@
     <!-- desktop sort -->
     <div v-if="$vuetify.breakpoint.mdAndUp">
       <slot name="desktopSort">
-        <v-row class="ml-3 mr-15" no-gutters>
+        <v-row :class="noHeaderPadding ? 'mr-5' : 'ml-3 mr-15'" no-gutters>
           <v-col
             v-for="header in headers"
             :key="header.key"
@@ -57,13 +57,13 @@
               small
               @click="updateSortBy(header)"
             >
-              {{ $t(header.label) }}
+              {{ header.labelOverride || $t(header.label) }}
               <v-icon small>
                 {{ icon(header) }}
               </v-icon>
             </v-btn>
             <span v-else class="text-caption text-uppercase font-weight-bold pt-1 pl-3">
-              {{ $t(header.label) }}
+              {{ header.labelOverride || $t(header.label) }}
             </span>
           </v-col>
         </v-row>
@@ -196,6 +196,10 @@ export default {
     defaultSort: {
       type: String,
       default: 'id'
+    },
+    noHeaderPadding: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
