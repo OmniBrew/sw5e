@@ -2,6 +2,11 @@ export const ListPageFilters = {
   data () {
     return {
       listPageFilters: {
+        species: [
+          { key: 'abilityScoreIncrease', label: 'ability_score_increase_title', textPath: 'abilities.{i}.title' },
+          { key: 'cSize', label: 'size_title', textPath: 'sizes.{i}_title' },
+          { key: 'source', label: 'source_title', textPath: 'sources.{i}.title' }
+        ],
         armor: [
           { key: 'rarity' },
           { key: 'type', textPath: 'armor_types.{i}' },
@@ -59,6 +64,19 @@ export const ListPageFilters = {
       }
       if (filterOptions.key === 'cr' && model === 'bestiary') {
         return this.createCrFilter()
+      }
+      if (filterOptions.key === 'abilityScoreIncrease' && model === 'species') {
+        const asiOptions = ['str', 'dex', 'con', 'int', 'wis', 'cha'].map((i) => {
+          return {
+            value: i,
+            text: this.$t(`abilities.${i}.title`)
+          }
+        })
+        return {
+          label: 'Ability Score Increase',
+          key: 'asi',
+          options: asiOptions
+        }
       }
       const label = this.$t(filterOptions.label) || this.$t(`${filterOptions.key}_title`)
       const key = filterOptions.key

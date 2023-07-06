@@ -29,7 +29,7 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#b71c1c' },
+  loading: { color: '#c40f0f' },
   /*
   ** Global CSS
   */
@@ -140,7 +140,7 @@ export default {
         light: {
           primary: colors.indigo.darken4,
           accent: colors.lightBlue.darken1,
-          secondary: colors.red.darken4,
+          secondary: '#c40f0f',
           info: colors.lightBlue.darken3,
           warning: colors.amber.lighten1,
           error: colors.pink.lighten1,
@@ -150,7 +150,7 @@ export default {
         dark: {
           primary: colors.lightBlue.darken1,
           accent: colors.indigo.darken4,
-          secondary: colors.red.darken4,
+          secondary: '#c40f0f',
           info: colors.lightBlue.darken3,
           warning: colors.amber.lighten1,
           error: colors.pink.lighten1,
