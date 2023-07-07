@@ -13,27 +13,21 @@
     },
     "categories": {
       "auth": {
-        "sw5eauth": {
-          "googleClientId": "519905180325-8d878703jt3sb1r42btcaqtftqvdbjdp.apps.googleusercontent.com"
-        },
+        "sw5eauth": {},
         "userPoolGroups": {}
-      },
-      "function": {
-        "homebrewTallies": {
-          "deploymentBucketName": "amplify-sw5e-dev-75508-deployment",
-          "s3Key": "amplify-builds/homebrewTallies-4b6677696b7339494769-build.zip"
-        },
-        "AdminQueriesa14c0563": {
-          "deploymentBucketName": "amplify-sw5e-dev-75508-deployment",
-          "s3Key": "amplify-builds/AdminQueriesa14c0563-36334a475879572f706a-build.zip"
-        }
-      },
-      "api": {
-        "AdminQueries": {},
-        "sw5e": {}
       },
       "storage": {
         "sw5estorage": {}
+      },
+      "function": {
+        "AdminQueriesa14c0563": {
+          "deploymentBucketName": "amplify-sw5e-dev-75508-deployment",
+          "s3Key": "amplify-builds/AdminQueriesa14c0563-36334a475879572f706a-build.zip"
+        },
+        "homebrewTallies": {
+          "deploymentBucketName": "amplify-sw5e-dev-75508-deployment",
+          "s3Key": "amplify-builds/homebrewTallies-4b6677696b7339494769-build.zip"
+        }
       }
     }
   }
