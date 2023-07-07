@@ -12,7 +12,7 @@ export default {
     },
     color: {
       type: String,
-      default: 'primary'
+      default: 'rgb(13, 153, 204)'
     }
   }
 }
