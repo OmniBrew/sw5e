@@ -194,19 +194,10 @@ export const actions = {
       try {
         const character = await dispatch('api/QUERY', { query: 'getCharacter', variables: { id } }, { root: true })
         commit('SET_CHARACTER_ID', character.id)
-        let characterData = jsonpack.unpack(character.data)
-        let triggerMigration = false
+        const characterData = jsonpack.unpack(character.data)
         const viewOnly = character.owner !== rootGetters['auth/username']
-        if (characterData.meta.version !== rootState.cbVersion) {
-          characterData = await dispatch('character/migrator/migrate', characterData, { root: true })
-          triggerMigration = true
-        }
         commit('SET_VIEW_ONLY', viewOnly)
         commit('SET_CHARACTER', characterData)
-        if (triggerMigration && !viewOnly) {
-          characterData.meta.remote = true
-          await dispatch('REMOTE_UPDATE_CHARACTER')
-        }
         await dispatch('homebrew/SYNC_HOMEBREW')
       } catch (e) {
         await dispatch('local/LOAD_CHARACTER', id)

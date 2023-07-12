@@ -72,10 +72,6 @@ export const actions = {
   },
   async CREATE_CHARACTER ({ dispatch, commit, rootGetters, getters, rootState }, c) {
     let character = c
-    // check version (via uploading)
-    if (character.meta?.version !== rootState.cbVersion) {
-      character = await dispatch('character/migrator/migrate', character, { root: true })
-    }
     // make sure character is real
     if (!character) {
       return
