@@ -2,7 +2,7 @@
   <v-container style="max-width: 1200px">
     <div class="text-center">
       <me-tpg s="h3">
-        You're character still need some key selections!
+        Your character still need some key selections!
       </me-tpg>
       <v-list>
         <v-list-item :color="character.species ? 'primary' : 'warning'" nuxt @click="editCharacter(0)">

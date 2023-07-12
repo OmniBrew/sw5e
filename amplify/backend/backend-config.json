@@ -146,14 +146,6 @@
     }
   },
   "parameters": {
-    "AMPLIFY_auth_sw5eauth_googleClientId": {
-      "usedBy": [
-        {
-          "category": "auth",
-          "resourceName": "sw5eauth"
-        }
-      ]
-    },
     "AMPLIFY_function_AdminQueriesa14c0563_deploymentBucketName": {
       "usedBy": [
         {
