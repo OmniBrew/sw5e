@@ -53,6 +53,17 @@ export default {
               text: `Vehicles: ${this.$options.filters.titlecase(vehicleType)}`
             })
           }
+        } else if (prof.choices && prof.choices.length) {
+          for (const choiceType of prof.choices) {
+            const key = Object.keys(choiceType)[0]
+            // const id = `${prof.id}-${key}`
+            items.push({
+              value: key,
+              group: prof.type,
+              text: `${choiceType[key]}`,
+              parent: prof.id
+            })
+          }
         } else {
           items.push({
             value: prof.id,
@@ -82,7 +93,8 @@ export default {
     },
     upsert (value) {
       this.$emit('upsert', value.map((i) => {
-        return { value: i, ...this.appended }
+        const parent = this.profOptions.find(item => item.value === i).parent
+        return { value: i, parent, ...this.appended }
       }))
     }
   }
