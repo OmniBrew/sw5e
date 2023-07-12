@@ -44,14 +44,14 @@
               <td class="font-weight-bold">
                 Height
               </td>
-              <td>{{ height.val }}</td>
+              <td>{{ height.base }}</td>
               <td>{{ height.mod }}</td>
             </tr>
             <tr>
               <td class="font-weight-bold">
                 Weight
               </td>
-              <td>{{ weight.val }}</td>
+              <td>{{ weight.base }}</td>
               <td>{{ weight.mod }}</td>
             </tr>
             <tr v-if="species.bioticPotential">
@@ -107,29 +107,11 @@ export default {
   },
   computed: {
     ...mapGetters(['species']),
-    heightWeightData () {
-      return this.species.randomDimensions
-    },
-    unitSystem () {
-      return this.$store.getters['user/imperial'] ? 'imperial' : 'metric'
-    },
     weight () {
-      const base = this.heightWeightData.weight.base[this.unitSystem]
-      const mod = this.heightWeightData.weight.mod[this.unitSystem]
-      const units = this.unitSystem === 'imperial' ? ' lbs' : ' kg'
-      return {
-        val: base + units,
-        mod: mod.dieCount + 'd' + mod.dieType + (mod.divisor ? ' / ' + mod.divisor : '') + units
-      }
+      return this.species.weight
     },
     height () {
-      const base = this.heightWeightData.height.base[this.unitSystem]
-      const mod = this.heightWeightData.height.mod[this.unitSystem]
-      const units = this.unitSystem === 'imperial' ? '"' : ' cm'
-      return {
-        val: base + units,
-        mod: mod.dieCount + 'd' + mod.dieType + (mod.divisor ? ' / ' + mod.divisor : '') + units
-      }
+      return this.species.height
     }
   }
 }

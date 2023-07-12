@@ -92,6 +92,7 @@ export default {
   },
   methods: {
     optionsCountReduction (acc, curr) {
+      debugger
       let total = curr.selections || 1
       const isModel = curr.type === 'model-choice'
       if (isModel) {
