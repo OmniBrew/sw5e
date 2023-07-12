@@ -76,7 +76,7 @@ export const actions = {
   // Discord Webhook APIs
   DISCORD_POST_ALL ({ dispatch, rootGetters }, payload) {
     const characterId = payload.source.id
-    const webhooks = JSON.parse(rootGetters['user/profile'].webhooks) || []
+    const webhooks = JSON.parse(rootGetters['user/profile'].webhooks)
     webhooks.forEach((hook) => {
       if (hook.characters.find(char => char.id === characterId)) {
         dispatch('api/DISCORD_POST', { webhook: hook.link, entry: payload }, { root: true })

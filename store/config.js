@@ -148,10 +148,6 @@ export const state = () => ({
     experiment: {
       dark: 'blue-grey darken-2',
       light: 'blue-grey lighten-1'
-    },
-    DEFAULT: {
-      dark: 'blue-grey darken-2',
-      light: 'blue-grey lighten-1'
     }
   },
   sklTypes: {
@@ -164,41 +160,38 @@ export const state = () => ({
 })
 
 export const getters = {
-  classTheme: state => (klass) => {
-    return state.classThemes[klass] ? state.classThemes[klass] : state.classThemes.DEFAULT
-  },
   primeTypeText: state => state.primeTypeText,
   rarityTextColors: state => state.rarityTextColors,
   rarityTextColor: (state, getters) => rarity => state.rarityTextColors[getters.darkMode ? 'dark' : 'light'][rarity],
   classThemes: state => state.classThemes,
   darkMode: (state, getters, rootState, rootGetters) => rootGetters['user/darkMode'],
-  isDarkOnlyClassTheme: state => klass => typeof getters.classTheme(klass).light === 'undefined',
+  isDarkOnlyClassTheme: state => klass => typeof state.classThemes[klass].light === 'undefined',
   classThemeHrColor: (state, getters) => (klass) => {
     if (getters.isDarkOnlyClassTheme(klass)) {
-      return getters.classTheme(klass).dark
+      return state.classThemes[klass].dark
     }
-    return getters.classTheme(klass)[getters.darkMode ? 'light' : 'dark']
+    return state.classThemes[klass][getters.darkMode ? 'light' : 'dark']
   },
   classThemeTabColor: (state, getters) => (klass) => {
     if (getters.isDarkOnlyClassTheme(klass)) {
       return 'grey darken-3'
     }
-    return getters.classTheme(klass)[getters.darkMode ? 'light' : 'dark']
+    return state.classThemes[klass][getters.darkMode ? 'light' : 'dark']
   },
   classThemeTabsColor: (state, getters) => (klass) => {
     if (getters.isDarkOnlyClassTheme(klass)) {
-      return getters.classTheme(klass).dark
+      return state.classThemes[klass].dark
     }
     return undefined
   },
   classThemeDark: state => (klass) => {
-    return getters.classTheme(klass).dark
+    return state.classThemes[klass].dark
   },
   classThemeLight: (state, getters) => (klass) => {
     if (getters.isDarkOnlyClassTheme(klass)) {
-      return getters.classTheme(klass).dark
+      return state.classThemes[klass].dark
     }
-    return getters.classTheme(klass).light
+    return state.classThemes[klass].light
   },
   classThemeTextOnDark: (state, getters) => klass => getters.isDarkOnlyClassTheme(klass) ? 'light' : 'dark',
   classThemeTabsMode: (state, getters) => (klass) => {
