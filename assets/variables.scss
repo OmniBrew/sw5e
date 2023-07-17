@@ -1,3 +1,5 @@
+@import '~vuetify/src/styles/tools/_functions.sass';
+
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Russo+One&display=swap');
 
 .sr-only {
@@ -74,4 +76,48 @@ $headings: (
     'text-transform': uppercase,
     'font-family': $heading-font-family
   )
+);
+
+/****************************
+ * Colors
+ */
+
+$green: () !default;
+$green: map-deep-merge(
+    (
+      'accent-4': #007900, // rarity: premium (light & dark theme)
+    ),
+    $green
+);
+
+$blue: () !default;
+$blue: map-deep-merge(
+    (
+      'accent-4': #0000fd, // rarity: prototype (light theme)
+    ),
+    $blue
+);
+
+$purple: () !default;
+$purple: map-deep-merge(
+    (
+      'darken-2': #800080, // rarity: advanced (light theme)
+    ),
+    $purple
+);
+
+$orange: () !default;
+$orange: map-deep-merge(
+    (
+      'darken-3': #dd6b20, // rarity: legendary (light & dark theme)
+    ),
+    $orange
+);
+
+$red: () !default;
+$red: map-deep-merge(
+    (
+      'accent-1': #ff0000, // rarity: artifact (light & dark theme)
+    ),
+    $red
 );
