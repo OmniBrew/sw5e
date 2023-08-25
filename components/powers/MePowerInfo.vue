@@ -4,7 +4,7 @@
       v-if="title"
       :title="item.name"
       avatar
-      :avatar-src="require(`~/assets/images/powers/${item.type}.svg`)"
+      :avatar-src="getImage(item.type)"
     />
     <v-row>
       <v-col cols="6" md="3">
@@ -47,7 +47,7 @@
           <v-row justify="start" align-content="center" no-gutters>
             <v-col v-for="klass in item.classes" :key="klass" cols="auto">
               <v-avatar size="45" tile>
-                <v-img :src="require(`~/assets/images/classes/${klass}.svg`)" :alt="klass" />
+                <v-img :src="getImage(klass)" :alt="klass" />
               </v-avatar>
             </v-col>
           </v-row>
@@ -63,7 +63,7 @@
       class="my-3"
     />
     <me-html :content="item.html" />
-    <div v-if="item.advancements.length && !hideAdvancements">
+    <div v-if="item.advancements && item.advancements.length && !hideAdvancements">
       <p class="text-h6 mb-0">
         {{ $t('advancement_options_title') }}
       </p>
@@ -109,6 +109,15 @@ export default {
         this.baseMechanic.castingTime.reaction,
         ...(this.baseMechanic.altCasting || []).map(i => i.reaction)
       ].find(i => !!i)
+    }
+  },
+  methods: {
+    getImage (img) {
+      try {
+        return require(`~/assets/images/classes/${img}.svg`)
+      } catch (e) {
+        return ''
+      }
     }
   }
 }
