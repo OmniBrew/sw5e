@@ -2,7 +2,7 @@
   <div>
     <section>
       <v-parallax
-        :src="require(`~/assets/images/parallax/hero.jpg`)"
+        :src="`~/assets/images/parallax/hero.jpg` | getImage"
       >
         <v-row justify="center">
           <v-col

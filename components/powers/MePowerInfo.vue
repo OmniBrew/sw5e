@@ -4,7 +4,7 @@
       v-if="title"
       :title="item.name"
       avatar
-      :avatar-src="getImage(item.type)"
+      :avatar-src="item.type | getImage"
     />
     <v-row>
       <v-col cols="6" md="3">
@@ -47,7 +47,7 @@
           <v-row justify="start" align-content="center" no-gutters>
             <v-col v-for="klass in item.classes" :key="klass" cols="auto">
               <v-avatar size="45" tile>
-                <v-img :src="getImage(klass)" :alt="klass" />
+                <v-img :src="klass | getImage" :alt="klass" />
               </v-avatar>
             </v-col>
           </v-row>
@@ -109,15 +109,6 @@ export default {
         this.baseMechanic.castingTime.reaction,
         ...(this.baseMechanic.altCasting || []).map(i => i.reaction)
       ].find(i => !!i)
-    }
-  },
-  methods: {
-    getImage (img) {
-      try {
-        return require(`~/assets/images/classes/${img}.svg`)
-      } catch (e) {
-        return ''
-      }
     }
   }
 }

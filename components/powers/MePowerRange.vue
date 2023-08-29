@@ -7,7 +7,7 @@
     <span v-if="aoe" class="text-caption" :class="{'d-block': split, 'ml-1': !split, 'mt-n1': split}">
       (<me-distance v-if="aoeSize" :length="aoe.size" abbr />
       <v-avatar v-if="filename" :size="size" tile style="margin-left: 2px">
-        <v-img :src="require(`~/assets/images/aoe/${filename}.svg`)" :alt="$t(`aoe_types.${aoe.type}`)" />
+        <v-img :src="`~/assets/images/aoe/${filename}.svg` | getImage" :alt="$t(`aoe_types.${aoe.type}`)" />
       </v-avatar>)
     </span>
   </span>

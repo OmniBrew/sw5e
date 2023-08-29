@@ -2,7 +2,7 @@
   <v-list-item>
     <v-list-item-avatar>
       <v-avatar>
-        <v-img :src="require(`~/assets/images/misc/credits.png`)" />
+        <v-img :src="`~/assets/images/misc/credits.png` | getImage" />
       </v-avatar>
     </v-list-item-avatar>
     <v-list-item-content>

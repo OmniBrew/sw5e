@@ -44,7 +44,7 @@
           >
             <v-card :href="community.link" target="_blank" dark class="text-center">
               <v-card-text>
-                <v-img :src="require(`~/assets/images/misc/${community.image}`)" :alt="community.alt" height="80" contain />
+                <v-img :src="`~/assets/images/misc/${community.image}` | getImage" :alt="community.alt" height="80" contain />
               </v-card-text>
             </v-card>
           </v-col>

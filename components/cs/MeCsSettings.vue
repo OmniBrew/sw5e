@@ -252,7 +252,7 @@
           <div class="d-flex">
             <v-avatar tile size="52">
               <v-img
-                :src="require(`~/assets/images/classes/${klass.id}.svg`)"
+                :src="`~/assets/images/classes/${klass.id}.svg` | getImage"
                 position="right"
               />
             </v-avatar>

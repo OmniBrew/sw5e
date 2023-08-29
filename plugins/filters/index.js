@@ -8,6 +8,7 @@ import listOfChoices from './listOfChoices'
 import removeActionId from './removeActionId'
 import titlecase from './titlecase'
 import fidtt from './fidtt'
+import getImage from './getImage'
 
 const customFilters = {
   article,
@@ -17,7 +18,8 @@ const customFilters = {
   listOfChoices,
   removeActionId,
   titlecase,
-  fidtt
+  fidtt,
+  getImage
 }
 
 const Filters = {

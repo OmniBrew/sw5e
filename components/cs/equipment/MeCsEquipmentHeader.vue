@@ -3,7 +3,7 @@
     <v-col cols="12" order="1" order-sm="2" class="d-flex justify-center justify-sm-end align-center mb-6 mb-sm-0">
       <v-card flat class="px-1 mr-2 d-flex align-start" @click="showSideNav('me-cs-equipment-credits')">
         <v-avatar size="16">
-          <v-img :src="require(`~/assets/images/misc/credits.png`)" />
+          <v-img :src="`~/assets/images/misc/credits.png` | getImage" />
         </v-avatar>
         <span class="text-uppercase text-caption font-weight-bold mx-1">
           {{ credits | groupDigits(',') }}

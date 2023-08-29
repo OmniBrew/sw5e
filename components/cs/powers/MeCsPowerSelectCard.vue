@@ -22,7 +22,7 @@
         </v-tooltip>
 
         <v-avatar size="22">
-          <v-img :src="require(`~/assets/images/powers/${item.data.type}.svg`)" />
+          <v-img :src="`~/assets/images/powers/${item.data.type}.svg` | getImage" />
         </v-avatar>
         <div class="pl-1">
           <div class="mb-0 text-caption">

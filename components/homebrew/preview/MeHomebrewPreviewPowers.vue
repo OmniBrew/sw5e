@@ -4,7 +4,7 @@
       <me-item-title
         :title="item.name"
         avatar
-        :avatar-src="require(`~/assets/images/powers/${item.type}.svg`)"
+        :avatar-src="`~/assets/images/powers/${item.type}.svg` | getImage"
       />
     </v-card-title>
     <v-card-text v-if="!loading">

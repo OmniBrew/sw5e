@@ -7,7 +7,7 @@
     <template #[`header.expanded`]="{ item }">
       <me-item-title
         avatar
-        :avatar-src="require(`~/assets/images/powers/${item.type}.svg`)"
+        :avatar-src="`~/assets/images/powers/${item.type}.svg` | getImage"
       >
         <template #title>
           <span :class="textColor">
@@ -23,7 +23,7 @@
       <v-row no-gutters>
         <v-col cols="auto">
           <v-avatar size="30" class="my-n2">
-            <v-img :src="require(`~/assets/images/powers/${item.type}.svg`)" />
+            <v-img :src="`~/assets/images/powers/${item.type}.svg` | getImage" />
           </v-avatar>
         </v-col>
         <v-col clas="auto">

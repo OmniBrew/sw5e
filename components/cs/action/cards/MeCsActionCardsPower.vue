@@ -22,7 +22,7 @@
                 </div>
                 <div class="text-caption font-weight-light d-flex align-center">
                   <v-avatar v-if="$vuetify.breakpoint.smAndUp" size="16" class="pr-1">
-                    <v-img :src="require(`~/assets/images/powers/${item.type}.svg`)" />
+                    <v-img :src="`~/assets/images/powers/${item.type}.svg` | getImage" />
                   </v-avatar>
                   <small class="text-capitalize text-truncate">
                     {{ properties }}

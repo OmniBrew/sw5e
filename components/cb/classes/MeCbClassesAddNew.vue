@@ -9,7 +9,7 @@
       <template v-for="item in availableClasses">
         <v-list-item :key="item.id" two-line @click="add(item)">
           <v-list-item-avatar v-if="$vuetify.breakpoint.smAndUp" tile>
-            <v-img :src="require(`~/assets/images/classes/${item.id}.svg`)" />
+            <v-img :src="`~/assets/images/classes/${item.id}.svg` | getImage" />
           </v-list-item-avatar>
           <v-list-item-content>
             <v-list-item-title>
