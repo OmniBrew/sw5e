@@ -1,10 +1,10 @@
 {
-  "AppSyncApiName": "masseffect5e",
+  "AppSyncApiName": "sw5e",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
   "DynamoDBEnableServerSideEncryption": false,
   "AuthCognitoUserPoolId": {
     "Fn::GetAtt": [
-      "authme5eauth",
+      "authsw5eauth",
       "Outputs.UserPoolId"
     ]
   }

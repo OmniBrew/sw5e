@@ -11,6 +11,17 @@ projects:
         generatedFileName: ''
         docsFilePath: ./graphql
         maxDepth: 4
+  sw5e:
+    schemaPath: 'E:/Sites/omnibrew/sw5e/graphql/schema.json'
+    includes:
+      - graphql/**/*.js
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: javascript
+        generatedFileName: ''
+        docsFilePath: graphql
 extensions:
   amplify:
     version: 3

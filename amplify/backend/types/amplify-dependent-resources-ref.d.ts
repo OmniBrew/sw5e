@@ -1,13 +1,18 @@
 export type AmplifyDependentResourcesAttributes = {
   "api": {
-    "masseffect5e": {
+    "AdminQueries": {
+      "ApiId": "string",
+      "ApiName": "string",
+      "RootUrl": "string"
+    },
+    "sw5e": {
       "GraphQLAPIEndpointOutput": "string",
       "GraphQLAPIIdOutput": "string",
       "GraphQLAPIKeyOutput": "string"
     }
   },
   "auth": {
-    "me5eauth": {
+    "sw5eauth": {
       "AppClientID": "string",
       "AppClientIDWeb": "string",
       "GoogleWebClient": "string",
@@ -20,12 +25,18 @@ export type AmplifyDependentResourcesAttributes = {
       "UserPoolName": "string"
     },
     "userPoolGroups": {
-      "adminsGroupRole": "string",
-      "translatorsGroupRole": "string"
+      "adminsGroupRole": "string"
     }
   },
   "function": {
-    "masseffect5eHomebrewTallies": {
+    "AdminQueriesa14c0563": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "homebrewTallies": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",
@@ -34,7 +45,7 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "storage": {
-    "me5estorage": {
+    "sw5estorage": {
       "BucketName": "string",
       "Region": "string"
     }

@@ -9,7 +9,7 @@
           <v-tab-item class="pa-3">
             <me-html :content="item.html" />
             <v-btn
-              :href="`http://masseffect.wikia.com/wiki/${ item.name }`"
+              :href="`https://starwars.fandom.com/wiki/${ item.name }`"
               target="_blank"
               color="secondary"
             >
@@ -49,26 +49,15 @@
       </v-col>
       <v-col md="3" class="hidden-sm-and-down">
         <div class="text-right">
-          <v-menu>
-            <template #activator="{ on, attrs }">
-              <v-btn
-                color="secondary"
-                v-bind="attrs"
-                v-on="on"
-              >
-                {{ $t('buttons.change_species') }} <v-icon>mdi-menu-down</v-icon>
-              </v-btn>
-            </template>
-            <v-list>
-              <v-list-item v-for="i in items" :key="i.id" :to="localePath({ name: 'species-id', params: { id: i.id }})">
-                <v-list-item-title>
-                  {{ i.name }}
-                </v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-menu>
+          <v-btn
+            color="primary"
+            to="/species"
+          >
+            {{ $t('buttons.change_species') }}
+          </v-btn>
         </div>
-        <v-img :src="item.bodyImg" height="80vh" contain />
+        <v-img :src="`/images/species/species_${item.id}.png`" height="80vh" contain />
+        <!--<me-species-distinctions :item="item" />-->
       </v-col>
     </v-row>
   </v-container>

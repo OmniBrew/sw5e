@@ -1,7 +1,7 @@
 /* Amplify Params - DO NOT EDIT
-	API_MASSEFFECT5E_GRAPHQLAPIENDPOINTOUTPUT
-	API_MASSEFFECT5E_GRAPHQLAPIIDOUTPUT
-	API_MASSEFFECT5E_GRAPHQLAPIKEYOUTPUT
+	API_SW5E_GRAPHQLAPIENDPOINTOUTPUT
+	API_SW5E_GRAPHQLAPIIDOUTPUT
+	API_SW5E_GRAPHQLAPIKEYOUTPUT
 	ENV
 	REGION
 Amplify Params - DO NOT EDIT */
@@ -10,7 +10,7 @@ const AWS = require('aws-sdk')
 const https = require('https')
 const urlParse = require('url').URL
 const region = process.env.REGION
-const appsyncUrl = process.env.API_MASSEFFECT5E_GRAPHQLAPIENDPOINTOUTPUT
+const appsyncUrl = process.env.API_SW5E_GRAPHQLAPIENDPOINTOUTPUT
 
 const getHomebrew = /* GraphQL */ `
   query GetHomebrew($id: ID!) {

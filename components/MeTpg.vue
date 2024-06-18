@@ -13,12 +13,12 @@ export default {
   },
   data () {
     return {
-      h1: 'text-h4 text-md-h2 font-weight-light',
-      h2: 'text-h5 text-md-h3 font-weight-medium',
-      h3: 'text-h6 text-md-h4 font-weight-bold',
-      h4: 'text-h6 text-md-h4 font-weight-light',
-      h5: 'text-subtitle-1 text-md-h6 font-weight-medium',
-      h6: 'text-subtitle-2 text-md-h6 font-weight-black',
+      h1: 'text-h4 text-md-h2 font-weight-light secondary--text',
+      h2: 'text-h5 text-md-h3 font-weight-medium secondary--text',
+      h3: 'text-h6 text-md-h4 font-weight-bold secondary--text',
+      h4: 'text-h6 text-md-h4 font-weight-light secondary--text',
+      h5: 'text-subtitle-1 text-md-h6 font-weight-medium secondary--text',
+      h6: 'text-subtitle-2 text-md-h6 font-weight-black secondary--text',
       title: 'text-subtitle-2 text-md-h6 font-weight-light',
       subtitle: 'text-overline text-md-button font-weight-medium',
       p: 'text-body-2'

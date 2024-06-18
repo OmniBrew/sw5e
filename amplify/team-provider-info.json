@@ -1,70 +1,33 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-masseffect5e-dev-54917-authRole",
-      "UnauthRoleArn": "arn:aws:iam::168036140514:role/amplify-masseffect5e-dev-54917-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::168036140514:role/amplify-masseffect5e-dev-54917-authRole",
+      "AuthRoleName": "amplify-sw5e-dev-75508-authRole",
+      "UnauthRoleArn": "arn:aws:iam::851877961814:role/amplify-sw5e-dev-75508-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::851877961814:role/amplify-sw5e-dev-75508-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-masseffect5e-dev-54917-deployment",
-      "UnauthRoleName": "amplify-masseffect5e-dev-54917-unauthRole",
-      "StackName": "amplify-masseffect5e-dev-54917",
-      "StackId": "arn:aws:cloudformation:us-east-1:168036140514:stack/amplify-masseffect5e-dev-54917/d08dc350-6314-11ec-a9f0-12ce1cb56bd3",
-      "AmplifyAppId": "d40caxicif4p7"
+      "DeploymentBucketName": "amplify-sw5e-dev-75508-deployment",
+      "UnauthRoleName": "amplify-sw5e-dev-75508-unauthRole",
+      "StackName": "amplify-sw5e-dev-75508",
+      "StackId": "arn:aws:cloudformation:us-east-1:851877961814:stack/amplify-sw5e-dev-75508/1fee85e0-1806-11ee-99b0-12c8b0153527",
+      "AmplifyAppId": "d3j8xebltk0pfh"
     },
     "categories": {
       "auth": {
-        "me5eauth": {
-          "googleClientId": "508866812450-4n7bfin1a459e5754q81bs3jjv1op91s.apps.googleusercontent.com"
-        },
-        "true": {
-          "googleClientId": "508866812450-4n7bfin1a459e5754q81bs3jjv1op91s.apps.googleusercontent.com"
-        },
+        "sw5eauth": {},
         "userPoolGroups": {}
       },
-      "api": {
-        "masseffect5e": {}
-      },
       "storage": {
-        "me5estorage": {}
+        "sw5estorage": {}
       },
       "function": {
-        "masseffect5eHomebrewTallies": {
-          "deploymentBucketName": "amplify-masseffect5e-dev-54917-deployment",
-          "s3Key": "amplify-builds/masseffect5eHomebrewTallies-634b4633413573444e46-build.zip"
-        }
-      }
-    }
-  },
-  "production": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-masseffect5e-production-194957-authRole",
-      "UnauthRoleArn": "arn:aws:iam::168036140514:role/amplify-masseffect5e-production-194957-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::168036140514:role/amplify-masseffect5e-production-194957-authRole",
-      "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-masseffect5e-production-194957-deployment",
-      "UnauthRoleName": "amplify-masseffect5e-production-194957-unauthRole",
-      "StackName": "amplify-masseffect5e-production-194957",
-      "StackId": "arn:aws:cloudformation:us-east-1:168036140514:stack/amplify-masseffect5e-production-194957/dcdcf4f0-911d-11ec-b157-12b72afe2377",
-      "AmplifyAppId": "d40caxicif4p7"
-    },
-    "categories": {
-      "auth": {
-        "me5eauth": {
-          "googleClientId": "508866812450-4n7bfin1a459e5754q81bs3jjv1op91s.apps.googleusercontent.com"
+        "AdminQueriesa14c0563": {
+          "deploymentBucketName": "amplify-sw5e-dev-75508-deployment",
+          "s3Key": "amplify-builds/AdminQueriesa14c0563-36334a475879572f706a-build.zip"
         },
-        "userPoolGroups": {}
-      },
-      "function": {
-        "masseffect5eHomebrewTallies": {
-          "deploymentBucketName": "amplify-masseffect5e-production-194957-deployment",
-          "s3Key": "amplify-builds/masseffect5eHomebrewTallies-4a774a41365853455348-build.zip"
+        "homebrewTallies": {
+          "deploymentBucketName": "amplify-sw5e-dev-75508-deployment",
+          "s3Key": "amplify-builds/homebrewTallies-4b6677696b7339494769-build.zip"
         }
-      },
-      "api": {
-        "masseffect5e": {}
-      },
-      "storage": {
-        "me5estorage": {}
       }
     }
   }

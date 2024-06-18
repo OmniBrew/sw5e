@@ -4,7 +4,7 @@
       <div class="d-flex align-center justify-space-between flex-wrap">
         <div class="d-flex">
           <v-avatar tile size="36">
-            <v-img :src="require(`~/assets/images/classes/${klass.id}.svg`)" />
+            <v-img :src="`~/assets/images/classes/${klass.id}.svg` | getImage" />
           </v-avatar>
           <div class="text-h6 mx-1">
             {{ klass.data.name }}

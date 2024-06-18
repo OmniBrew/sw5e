@@ -26,7 +26,7 @@
           </v-col>
           <v-col cols="6" lg="3">
             <me-item-stat :label="$t('heat_title')">
-              {{ item.heat }}
+              {{ item.reload }}
             </me-item-stat>
           </v-col>
           <v-col cols="6" lg="3">

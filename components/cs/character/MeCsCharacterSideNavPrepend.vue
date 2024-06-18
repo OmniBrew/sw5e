@@ -23,7 +23,7 @@
       <v-list-item v-for="(klass, index) in klasses" :key="`klass-${index}`" style="min-height: 48px">
         <v-list-item-avatar tile class="my-0">
           <v-avatar tile size="40">
-            <v-img :src="require(`~/assets/images/classes/${klass.id}.svg`)" />
+            <v-img :src="`~/assets/images/classes/${klass.id}.svg` | getImage" />
           </v-avatar>
         </v-list-item-avatar>
         <v-list-item-content>

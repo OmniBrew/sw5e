@@ -14,8 +14,8 @@
     />
     <!-- ME5e Icon -->
     <nuxt-link to="/">
-      <v-avatar tile size="24">
-        <img src="/icon.png" :alt="`Mass Effect 5e icon`">
+      <v-avatar tile size="60">
+        <img src="/icon.png" :alt="`SW5e 5e icon`" style="object-fit: contain">
       </v-avatar>
     </nuxt-link>
     <!-- Page Title -->
@@ -146,7 +146,7 @@ export default {
       return this.$store.getters.mainNavigation
     },
     pageTitle () {
-      return this.$vuetify.breakpoint.smAndDown ? this.$store.getters.pageTitle : this.$t('title')
+      return this.$vuetify.breakpoint.smAndDown ? this.$store.getters.pageTitle : ''
     },
     drawer: {
       get () {

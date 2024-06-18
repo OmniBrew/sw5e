@@ -1,7 +1,7 @@
 {
-  "resourceName": "me5estorage",
-  "policyUUID": "9a8ee557",
-  "bucketName": "me5estorage",
+  "resourceName": "sw5estorage",
+  "policyUUID": "285813e0",
+  "bucketName": "sw5estorage",
   "storageAccess": "authAndGuest",
   "guestAccess": [
     "READ"
@@ -11,5 +11,5 @@
     "READ",
     "DELETE"
   ],
-  "groupAccess": {}
+  "triggerFunction": "NONE"
 }

@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "{\"createdOn\":\"Windows\",\"createdBy\":\"Amplify\",\"createdWith\":\"10.2.3\",\"stackType\":\"function-Lambda\",\"metadata\":{}}",
+  "Description": "{\"createdOn\":\"Windows\",\"createdBy\":\"Amplify\",\"createdWith\":\"12.0.0\",\"stackType\":\"function-Lambda\",\"metadata\":{}}",
   "Parameters": {
     "CloudWatchRule": {
       "Type": "String",
@@ -16,17 +16,17 @@
     "s3Key": {
       "Type": "String"
     },
-    "apimasseffect5eGraphQLAPIIdOutput": {
+    "apisw5eGraphQLAPIIdOutput": {
       "Type": "String",
-      "Default": "apimasseffect5eGraphQLAPIIdOutput"
+      "Default": "apisw5eGraphQLAPIIdOutput"
     },
-    "apimasseffect5eGraphQLAPIEndpointOutput": {
+    "apisw5eGraphQLAPIEndpointOutput": {
       "Type": "String",
-      "Default": "apimasseffect5eGraphQLAPIEndpointOutput"
+      "Default": "apisw5eGraphQLAPIEndpointOutput"
     },
-    "apimasseffect5eGraphQLAPIKeyOutput": {
+    "apisw5eGraphQLAPIKeyOutput": {
       "Type": "String",
-      "Default": "apimasseffect5eGraphQLAPIKeyOutput"
+      "Default": "apisw5eGraphQLAPIKeyOutput"
     }
   },
   "Conditions": {
@@ -59,12 +59,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "masseffect5eHomebrewTallies",
+            "homebrewTallies",
             {
               "Fn::Join": [
                 "",
                 [
-                  "masseffect5eHomebrewTallies",
+                  "homebrewTallies",
                   "-",
                   {
                     "Ref": "env"
@@ -82,14 +82,14 @@
             "REGION": {
               "Ref": "AWS::Region"
             },
-            "API_MASSEFFECT5E_GRAPHQLAPIIDOUTPUT": {
-              "Ref": "apimasseffect5eGraphQLAPIIdOutput"
+            "API_SW5E_GRAPHQLAPIIDOUTPUT": {
+              "Ref": "apisw5eGraphQLAPIIdOutput"
             },
-            "API_MASSEFFECT5E_GRAPHQLAPIENDPOINTOUTPUT": {
-              "Ref": "apimasseffect5eGraphQLAPIEndpointOutput"
+            "API_SW5E_GRAPHQLAPIENDPOINTOUTPUT": {
+              "Ref": "apisw5eGraphQLAPIEndpointOutput"
             },
-            "API_MASSEFFECT5E_GRAPHQLAPIKEYOUTPUT": {
-              "Ref": "apimasseffect5eGraphQLAPIKeyOutput"
+            "API_SW5E_GRAPHQLAPIKEYOUTPUT": {
+              "Ref": "apisw5eGraphQLAPIKeyOutput"
             }
           }
         },
@@ -99,7 +99,7 @@
             "Arn"
           ]
         },
-        "Runtime": "nodejs14.x",
+        "Runtime": "nodejs18.x",
         "Layers": [],
         "Timeout": 25
       }
@@ -110,12 +110,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "masseffect5eLambdaRole217be619",
+            "sw5eLambdaRole45c94081",
             {
               "Fn::Join": [
                 "",
                 [
-                  "masseffect5eLambdaRole217be619",
+                  "sw5eLambdaRole45c94081",
                   "-",
                   {
                     "Ref": "env"
@@ -221,7 +221,7 @@
                       },
                       ":apis/",
                       {
-                        "Ref": "apimasseffect5eGraphQLAPIIdOutput"
+                        "Ref": "apisw5eGraphQLAPIIdOutput"
                       },
                       "/types/Query/*"
                     ]
@@ -241,7 +241,7 @@
                       },
                       ":apis/",
                       {
-                        "Ref": "apimasseffect5eGraphQLAPIIdOutput"
+                        "Ref": "apisw5eGraphQLAPIIdOutput"
                       },
                       "/types/Mutation/*"
                     ]
@@ -278,7 +278,7 @@
               ],
               "Resource": {
                 "Fn::ImportValue": {
-                  "Fn::Sub": "${apimasseffect5eGraphQLAPIIdOutput}:GetAtt:HomebrewUseTable:StreamArn"
+                  "Fn::Sub": "${apisw5eGraphQLAPIIdOutput}:GetAtt:HomebrewUseTable:StreamArn"
                 }
               }
             }
@@ -297,7 +297,7 @@
         "Enabled": true,
         "EventSourceArn": {
           "Fn::ImportValue": {
-            "Fn::Sub": "${apimasseffect5eGraphQLAPIIdOutput}:GetAtt:HomebrewUseTable:StreamArn"
+            "Fn::Sub": "${apisw5eGraphQLAPIIdOutput}:GetAtt:HomebrewUseTable:StreamArn"
           }
         },
         "FunctionName": {
@@ -334,7 +334,7 @@
               ],
               "Resource": {
                 "Fn::ImportValue": {
-                  "Fn::Sub": "${apimasseffect5eGraphQLAPIIdOutput}:GetAtt:HomebrewVoteTable:StreamArn"
+                  "Fn::Sub": "${apisw5eGraphQLAPIIdOutput}:GetAtt:HomebrewVoteTable:StreamArn"
                 }
               }
             }
@@ -353,7 +353,7 @@
         "Enabled": true,
         "EventSourceArn": {
           "Fn::ImportValue": {
-            "Fn::Sub": "${apimasseffect5eGraphQLAPIIdOutput}:GetAtt:HomebrewVoteTable:StreamArn"
+            "Fn::Sub": "${apisw5eGraphQLAPIIdOutput}:GetAtt:HomebrewVoteTable:StreamArn"
           }
         },
         "FunctionName": {

@@ -4,7 +4,7 @@
       v-if="title"
       :title="item.name"
       avatar
-      :avatar-src="require(`~/assets/images/powers/${item.type}.svg`)"
+      :avatar-src="item.type | getImage"
     />
     <v-row>
       <v-col cols="6" md="3">
@@ -53,7 +53,7 @@
           <v-row justify="start" align-content="center" no-gutters>
             <v-col v-for="klass in item.classes" :key="klass" cols="auto">
               <v-avatar size="45" tile>
-                <v-img :src="require(`~/assets/images/classes/${klass}.svg`)" :alt="klass" />
+                <v-img :src="klass | getImage" :alt="klass" />
               </v-avatar>
             </v-col>
           </v-row>

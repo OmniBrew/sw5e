@@ -1,14 +1,45 @@
 {
   "api": {
-    "masseffect5e": {
+    "AdminQueries": {
+      "authorizationType": "AMAZON_COGNITO_USER_POOLS",
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "sw5eauth"
+        },
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "AdminQueriesa14c0563"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
+    "sw5e": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "sw5eauth"
+        }
+      ],
       "output": {
         "authConfig": {
           "additionalAuthenticationProviders": [
             {
               "apiKeyConfig": {
-                "apiKeyExpirationDate": "2023-03-07T12:31:13.189Z",
+                "apiKeyExpirationDate": "2024-06-30T12:21:48.729Z",
                 "apiKeyExpirationDays": 365,
-                "description": "admin_utils"
+                "description": "sw5eapikey"
               },
               "authenticationType": "API_KEY"
             },
@@ -19,7 +50,7 @@
           "defaultAuthentication": {
             "authenticationType": "AMAZON_COGNITO_USER_POOLS",
             "userPoolConfig": {
-              "userPoolId": "authme5eauth"
+              "userPoolId": "authsw5eauth"
             }
           }
         }
@@ -29,7 +60,7 @@
     }
   },
   "auth": {
-    "me5eauth": {
+    "sw5eauth": {
       "customAuth": false,
       "dependsOn": [],
       "frontendAuthConfig": {
@@ -67,7 +98,7 @@
             "IdentityPoolId"
           ],
           "category": "auth",
-          "resourceName": "me5eauth"
+          "resourceName": "sw5eauth"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -75,7 +106,21 @@
     }
   },
   "function": {
-    "masseffect5eHomebrewTallies": {
+    "AdminQueriesa14c0563": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "sw5eauth"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "homebrewTallies": {
       "build": true,
       "dependsOn": [
         {
@@ -84,7 +129,7 @@
             "GraphQLAPIEndpointOutput"
           ],
           "category": "api",
-          "resourceName": "masseffect5e"
+          "resourceName": "sw5e"
         },
         {
           "attributes": [
@@ -93,7 +138,7 @@
             "GraphQLAPIKeyOutput"
           ],
           "category": "api",
-          "resourceName": "masseffect5e"
+          "resourceName": "sw5e"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -101,41 +146,49 @@
     }
   },
   "parameters": {
-    "AMPLIFY_auth_me5eauth_googleClientId": {
+    "AMPLIFY_auth_sw5eauth_googleClientId": {
       "usedBy": [
         {
           "category": "auth",
-          "resourceName": "me5eauth"
+          "resourceName": "sw5eauth"
         }
       ]
     },
-    "AMPLIFY_auth_true_googleClientId": {
-      "usedBy": [
-        {
-          "category": "auth",
-          "resourceName": "true"
-        }
-      ]
-    },
-    "AMPLIFY_function_masseffect5eHomebrewTallies_deploymentBucketName": {
+    "AMPLIFY_function_AdminQueriesa14c0563_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "masseffect5eHomebrewTallies"
+          "resourceName": "AdminQueriesa14c0563"
         }
       ]
     },
-    "AMPLIFY_function_masseffect5eHomebrewTallies_s3Key": {
+    "AMPLIFY_function_AdminQueriesa14c0563_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "masseffect5eHomebrewTallies"
+          "resourceName": "AdminQueriesa14c0563"
+        }
+      ]
+    },
+    "AMPLIFY_function_homebrewTallies_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "homebrewTallies"
+        }
+      ]
+    },
+    "AMPLIFY_function_homebrewTallies_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "homebrewTallies"
         }
       ]
     }
   },
   "storage": {
-    "me5estorage": {
+    "sw5estorage": {
       "dependsOn": [],
       "providerPlugin": "awscloudformation",
       "service": "S3"

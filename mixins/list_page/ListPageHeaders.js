@@ -2,6 +2,13 @@ export const ListPageHeaders = {
   data () {
     return {
       listPageHeaders: {
+        species: [
+          { labelOverride: '', key: '', cols: 2, sm: 2, sortable: false },
+          { label: 'name_title', key: 'name', cols: 3, sm: 2 },
+          { labelOverride: 'Ability Score', key: 'abilityScoreIncreaseText', cols: 6, sm: 5, lg: 3, sortable: false, classes: 'text-center' },
+          { label: 'size_title', key: 'cSize', cols: 3, sm: 2, lg: 2, classes: 'text-center' },
+          { label: 'source_title', key: 'source', cols: 3, sm: 1, lg: 2, classes: 'text-center' }
+        ],
         powers: [
           { label: 'type_level_title', key: 'level', cols: 4, sm: 3, md: 2 },
           { label: 'name_title', key: 'name', cols: 8, sm: 9, md: 4, lg: 2 },

@@ -19,7 +19,7 @@
                     </div>
                     <div v-if="groupedPowercastingAbilityStats.length > 1">
                       <v-avatar v-for="pcKlass in info.klasses" :key="`${info.ability}-${stat}-${pcKlass}-icon`" title size="22">
-                        <v-img :src="require(`~/assets/images/classes/${pcKlass}.svg`)" />
+                        <v-img :src="`~/assets/images/classes/${pcKlass}.svg` | getImage" />
                       </v-avatar>
                     </div>
                   </div>

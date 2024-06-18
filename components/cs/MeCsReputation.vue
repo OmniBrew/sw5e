@@ -2,10 +2,10 @@
   <v-card flat color="transparent" @click="repDialog = true">
     <div class="d-flex justify-space-between mx-6">
       <v-avatar size="24">
-        <v-img :src="require('~/assets/images/misc/paragon.png')" />
+        <v-img :src="'~/assets/images/misc/paragon.png' | getImage" />
       </v-avatar>
       <v-avatar size="24">
-        <v-img :src="require('~/assets/images/misc/renegade.png')" />
+        <v-img :src="'~/assets/images/misc/renegade.png' | getImage" />
       </v-avatar>
     </div>
     <div class="d-flex justify-center mt-n5">

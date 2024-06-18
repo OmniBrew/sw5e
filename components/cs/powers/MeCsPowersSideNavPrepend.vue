@@ -2,7 +2,7 @@
   <v-list-item two-line>
     <v-list-item-avatar>
       <v-avatar>
-        <v-img :src="require(`~/assets/images/powers/${powerData.type}.svg`)" />
+        <v-img :src="`~/assets/images/powers/${powerData.type}.svg` | getImage" />
       </v-avatar>
     </v-list-item-avatar>
     <v-list-item-content>

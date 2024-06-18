@@ -26,7 +26,7 @@ export default {
   },
   computed: {
     item () {
-      return this.$store.getters.getItem('weapon-properties', this.id)
+      return this.$store.getters.getItem('weapon-properties', this.id.toString()) || {}
     }
   }
 }

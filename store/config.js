@@ -19,29 +19,38 @@ export const state = () => ({
     temp: { icon: 'heart-flash', color: 'blue-grey lighten-1' }
   },
   rarityColors: {
-    varies: 'grey darken-3',
-    common: 'grey darken-3',
-    uncommon: 'green darken-3',
-    rare: 'blue darken-2',
-    very_rare: 'purple',
-    spectre: 'red'
+    varies: 'white',
+    basic: 'white',
+    unenhanced: 'white',
+    standard: 'grey darken-3',
+    premium: 'green darken-3',
+    prototype: 'blue darken-2',
+    advanced: 'purple',
+    legendary: 'orange',
+    artifact: 'red'
   },
   rarityTextColors: {
     light: {
       varies: 'grey--text text--darken-4',
-      common: 'grey--text text--darken-4',
-      uncommon: 'green--text text--darken-3',
-      rare: 'blue--text text--darken-2',
-      very_rare: 'purple--text',
-      spectre: 'red--text text--darken-4'
+      basic: 'grey--text text--darken-4',
+      unenhanced: 'grey--text text--darken-4',
+      standard: 'grey--text text--darken-1',
+      premium: 'green--text text--accent-4',
+      prototype: 'blue--text text--accent-4',
+      advanced: 'purple--text text--darken-2',
+      legendary: 'orange--text text--darken-3',
+      artifact: 'red--text text--accent-1'
     },
     dark: {
-      varies: 'grey--text',
-      common: 'grey--text',
-      uncommon: 'green--text text--accent-4',
-      rare: 'blue--text',
-      very_rare: 'purple--text text--accent-2',
-      spectre: 'red--text'
+      varies: 'grey--text text--lighten-5',
+      basic: 'grey--text text--lighten-5',
+      unenhanced: 'grey--text text--lighten-5',
+      standard: 'grey--text text--darken-1',
+      premium: 'green--text text--accent-4',
+      prototype: 'blue--text',
+      advanced: 'purple--text text--lighten-1',
+      legendary: 'orange--text text--darken-3',
+      artifact: 'red--text text--accent-1'
     }
   },
   primeTypeText: {
@@ -148,6 +157,10 @@ export const state = () => ({
     experiment: {
       dark: 'blue-grey darken-2',
       light: 'blue-grey lighten-1'
+    },
+    DEFAULT: {
+      dark: 'blue-grey darken-2',
+      light: 'blue-grey lighten-1'
     }
   },
   sklTypes: {
@@ -160,38 +173,41 @@ export const state = () => ({
 })
 
 export const getters = {
+  classTheme: state => (klass) => {
+    return state.classThemes[klass] ? state.classThemes[klass] : state.classThemes.DEFAULT
+  },
   primeTypeText: state => state.primeTypeText,
   rarityTextColors: state => state.rarityTextColors,
   rarityTextColor: (state, getters) => rarity => state.rarityTextColors[getters.darkMode ? 'dark' : 'light'][rarity],
   classThemes: state => state.classThemes,
   darkMode: (state, getters, rootState, rootGetters) => rootGetters['user/darkMode'],
-  isDarkOnlyClassTheme: state => klass => typeof state.classThemes[klass].light === 'undefined',
+  isDarkOnlyClassTheme: state => klass => typeof getters.classTheme(klass).light === 'undefined',
   classThemeHrColor: (state, getters) => (klass) => {
     if (getters.isDarkOnlyClassTheme(klass)) {
-      return state.classThemes[klass].dark
+      return getters.classTheme(klass).dark
     }
-    return state.classThemes[klass][getters.darkMode ? 'light' : 'dark']
+    return getters.classTheme(klass)[getters.darkMode ? 'light' : 'dark']
   },
   classThemeTabColor: (state, getters) => (klass) => {
     if (getters.isDarkOnlyClassTheme(klass)) {
       return 'grey darken-3'
     }
-    return state.classThemes[klass][getters.darkMode ? 'light' : 'dark']
+    return getters.classTheme(klass)[getters.darkMode ? 'light' : 'dark']
   },
   classThemeTabsColor: (state, getters) => (klass) => {
     if (getters.isDarkOnlyClassTheme(klass)) {
-      return state.classThemes[klass].dark
+      return getters.classTheme(klass).dark
     }
     return undefined
   },
   classThemeDark: state => (klass) => {
-    return state.classThemes[klass].dark
+    return getters.classTheme(klass).dark
   },
   classThemeLight: (state, getters) => (klass) => {
     if (getters.isDarkOnlyClassTheme(klass)) {
-      return state.classThemes[klass].dark
+      return getters.classTheme(klass).dark
     }
-    return state.classThemes[klass].light
+    return getters.classTheme(klass).light
   },
   classThemeTextOnDark: (state, getters) => klass => getters.isDarkOnlyClassTheme(klass) ? 'light' : 'dark',
   classThemeTabsMode: (state, getters) => (klass) => {

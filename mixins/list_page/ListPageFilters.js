@@ -2,6 +2,11 @@ export const ListPageFilters = {
   data () {
     return {
       listPageFilters: {
+        species: [
+          { key: 'abilityScoreIncrease', label: 'ability_score_increase_title', textPath: 'abilities.{i}.title' },
+          { key: 'cSize', label: 'size_title', textPath: 'sizes.{i}_title' },
+          { key: 'source', label: 'source_title', textPath: 'sources.{i}.title' }
+        ],
         armor: [
           { key: 'rarity' },
           { key: 'type', textPath: 'armor_types.{i}' },

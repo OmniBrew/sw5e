@@ -7,7 +7,7 @@
     <v-row>
       <v-col cols="4" sm="3" md="5" xl="4">
         <v-img
-          :src="require(`~/assets/images/classes/${item.id}.svg`)"
+          :src="`~/assets/images/classes/${item.id}.svg` | getImage"
           position="right"
         />
         <div v-if="item.author" class="text-center font-weight-light font-italic primary--text">
@@ -32,6 +32,7 @@
 </template>
 
 <script>
+
 export default {
   props: {
     item: {
