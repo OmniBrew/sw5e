@@ -23,10 +23,6 @@ export default {
           description: ''
         }
       }
-    },
-    monsterName: {
-      type: String,
-      required: true
     }
   },
   computed: {
@@ -37,8 +33,7 @@ export default {
     description () {
       if (this.feature.casting) {
         const cleanedDwl = this.feature.DescriptionWithLinks.replace(/[\r\n]+/g, ' ')
-        const [namePart] = this.monsterName.split(' ')
-        const castingTraitRegex = new RegExp(`\\s{1,2}(The).${namePart}.*?asting.*?\\).*?:`, 'gim')
+        const castingTraitRegex = /\s{1,2}(The).*?asting.*?\).*?:/gm
         const match = cleanedDwl.match(castingTraitRegex)
         if (match) {
           return match[0].trim()
