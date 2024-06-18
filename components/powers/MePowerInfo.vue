@@ -43,6 +43,12 @@
         </me-item-stat>
       </v-col>
       <v-col cols="6" md="3">
+        <me-item-stat label="Classes">
+          <span class="text-capitalize">
+            {{ item.classes.join(', ') }}
+          </span>
+        </me-item-stat>
+        <!--
         <div>
           <v-row justify="start" align-content="center" no-gutters>
             <v-col v-for="klass in item.classes" :key="klass" cols="auto">
@@ -52,6 +58,7 @@
             </v-col>
           </v-row>
         </div>
+        -->
       </v-col>
     </v-row>
     <div v-if="reactionQualifier" class="font-italic body-2 pt-2">
@@ -63,6 +70,7 @@
       class="my-3"
     />
     <me-html :content="item.html" />
+    <!--
     <div v-if="item.advancements.length && !hideAdvancements">
       <p class="text-h6 mb-0">
         {{ $t('advancement_options_title') }}
@@ -80,6 +88,7 @@
         </v-col>
       </v-row>
     </div>
+    -->
   </div>
 </template>
 

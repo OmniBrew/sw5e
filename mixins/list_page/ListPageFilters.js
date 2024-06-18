@@ -29,8 +29,10 @@ export const ListPageFilters = {
           { key: 'classes' }
         ],
         bestiary: [
-          { key: 'unit', label: 'npc.faction_title', textPath: 'npc.unit_types.{i}' },
-          { key: 'cr' }
+          { key: 'type' },
+          { key: 'cr' },
+          { key: 'size' },
+          { key: 'alignment' }
         ]
       }
     }
@@ -59,6 +61,28 @@ export const ListPageFilters = {
       }
       if (filterOptions.key === 'cr' && model === 'bestiary') {
         return this.createCrFilter()
+      }
+      if (filterOptions.key === 'type' && model === 'bestiary') {
+        return this.createMonsterTypeFilter()
+      }
+      if (filterOptions.key === 'size' && model === 'bestiary') {
+        return this.createMonsterSizeFilter()
+      }
+      if (filterOptions.key === 'alignment' && model === 'bestiary') {
+        return this.createMonsterAlignmentFilter()
+      }
+      if (filterOptions.key === 'abilityScoreIncrease' && model === 'species') {
+        const asiOptions = ['str', 'dex', 'con', 'int', 'wis', 'cha'].map((i) => {
+          return {
+            value: i,
+            text: this.$t(`abilities.${i}.title`)
+          }
+        })
+        return {
+          label: 'Ability Score Increase',
+          key: 'asi',
+          options: asiOptions
+        }
       }
       const label = this.$t(filterOptions.label) || this.$t(`${filterOptions.key}_title`)
       const key = filterOptions.key
@@ -154,18 +178,60 @@ export const ListPageFilters = {
     },
     createCrFilter () {
       const stats = this.$store.getters.getData('npc-stats')
-      const availableCrs = [...new Set(this.items.map(i => i.cr))]
+      const availableCrs = [...new Set(this.items.map(i => i.ChallengeRating))]
       return {
-        key: 'cr',
+        key: 'ChallengeRating',
         label: this.$t('npc.cr_title'),
-        options: stats.filter(i => availableCrs.includes(i.id))
+        options: stats.filter(i => availableCrs.includes(i.cr))
           .map((i) => {
             return {
-              value: i.id,
+              value: i.cr,
               text: i.cr
             }
           })
-          .sort((a, b) => a.id > b.id ? 1 : -1)
+          .sort((a, b) => a.id > b.id ? -1 : 1)
+      }
+    },
+    createMonsterTypeFilter () {
+      const availableTypes = [...new Set(this.items.map(i => i.TypesJson))]
+      return {
+        key: 'TypesJson',
+        label: this.$t('type_title'),
+        options: availableTypes.map((i) => {
+          return {
+            value: i,
+            text: i[0].toUpperCase() + i.slice(1)
+          }
+        })
+          .sort((a, b) => a.value > b.value ? 1 : -1)
+      }
+    },
+    createMonsterSizeFilter () {
+      const availableTypes = [...new Set(this.items.map(i => i.Size))]
+      return {
+        key: 'Size',
+        label: this.$t('size_title'),
+        options: availableTypes.map((i) => {
+          return {
+            value: i,
+            text: i
+          }
+        })
+          .sort((a, b) => a.value > b.value ? -1 : 1)
+      }
+    },
+    createMonsterAlignmentFilter () {
+      const availableTypes = [...new Set(this.items.map(i => i.Alignment))]
+      return {
+        key: 'Alignment',
+        label: this.$t('alignment_title'),
+        options: availableTypes.map((i) => {
+          return {
+            value: i,
+            text: i.split(' ').map(j => j[0].toUpperCase() + j.slice(1)).join(' ')
+          }
+        })
+          .sort((a, b) => a.value > b.value ? 1 : -1)
       }
     }
   }

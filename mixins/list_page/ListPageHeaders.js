@@ -38,9 +38,11 @@ export const ListPageHeaders = {
           { key: 'weight', label: 'weight_title', cols: 3, classes: 'd-none d-sm-flex' }
         ],
         bestiary: [
-          { key: 'name', label: 'name_title', cols: 6 },
-          { key: 'unit', label: 'npc.faction_title', cols: 3 },
-          { key: 'cr', label: 'npc.cr_title', cols: 3 }
+          { key: 'RowKey', label: 'name_title', cols: 6, sm: 4 },
+          { key: 'Size', label: 'size_title', cols: 4, sm: 2 },
+          { key: 'TypesJson', label: 'type_title', cols: 3, md: 2, classes: 'd-none d-sm-flex' },
+          { key: 'ChallengeRating', labelOverride: 'CR', cols: 2 },
+          { key: 'Alignment', label: 'alignment_title', cols: 2, classes: 'd-none d-md-flex' }
         ]
       }
     }
