@@ -50,7 +50,7 @@ export default {
         },
         bestiary: {
           label: this.$tc('npc_title', 2),
-          component: 'MeNpcList'
+          component: 'MeMonsterList'
         }
       }
     }
