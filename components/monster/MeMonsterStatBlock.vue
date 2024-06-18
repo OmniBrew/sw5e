@@ -75,8 +75,8 @@
             Traits
           </me-npc-set-title>
           <div v-for="(feature, index) in features" :key="`feature-${index}`">
-            <me-monster-feature :feature="feature" :monster-name="stats.Name" />
-            <me-monster-powercasting-list v-if="feature.casting" :feature="feature" :monster-name="stats.Name" />
+            <me-monster-feature :feature="feature" />
+            <me-monster-powercasting-list v-if="feature.casting" :feature="feature" />
           </div>
         </div>
 
@@ -86,7 +86,7 @@
             {{ $t('npc.actions_title') }}
           </me-npc-set-title>
           <div v-for="(action, actionIndex) in actions" :key="`action-${actionIndex}`">
-            <me-monster-feature :feature="action" :monster-name="stats.Name" />
+            <me-monster-feature :feature="action" />
           </div>
         </div>
 
@@ -101,7 +101,7 @@
             The {{ stats.Name }} regains spent legendary actions at the start of their turn.
           </p>
           <p v-for="(lgAction, lgIndex) in legendary" :key="`legendary-${lgIndex}`">
-            <me-monster-feature :feature="lgAction" :monster-name="stats.Name" />
+            <me-monster-feature :feature="lgAction" />
           </p>
         </div>
 
@@ -111,7 +111,7 @@
             {{ $t('npc.reactions_title') }}
           </me-npc-set-title>
           <p v-for="(reaction, reactionIndex) in reactions" :key="`reaction-${reactionIndex}`">
-            <me-monster-feature :feature="reaction" :monster-name="stats.Name" />
+            <me-monster-feature :feature="reaction" />
           </p>
         </div>
       </v-col>
@@ -212,7 +212,7 @@ export default {
       return this.stats.BehaviorsJson.filter(i => i.MonsterBehaviorType === 'Trait').map((i) => {
         const [namePart] = this.stats.Name.split(' ')
         const castingRegexSearch = new RegExp(`\\s{1,2}${namePart}.*?asting.*?\\)`, 'gi')
-        if (i.DescriptionWithLinks.match(castingRegexSearch)) {
+        if (i.DescriptionWithLinks.match(castingRegexSearch) || i.Name.endsWith('asting')) {
           return {
             ...i,
             casting: true

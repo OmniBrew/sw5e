@@ -26,10 +26,6 @@ export default {
     innate: {
       type: Boolean,
       default: false
-    },
-    monsterName: {
-      type: String,
-      required: true
     }
   },
   async fetch () {
@@ -45,8 +41,7 @@ export default {
     list () {
       const list = []
       const hasLines = this.feature.DescriptionWithLinks.match(/[\r\n]+/g)
-      const [namePart] = this.monsterName.split(' ')
-      const castingTraitRegex = new RegExp(`\\s{1,2}(The).${namePart}.*?asting.*?\\)`, 'gim')
+      const castingTraitRegex = /\s{1,2}(The).*?asting.*?\)/gm
       if (hasLines) {
         const groups = this.feature.DescriptionWithLinks.split(/[\r\n]+/)
         for (const group of groups) {
@@ -85,7 +80,7 @@ export default {
         }
         // console.log(list)
       } else {
-        // console.log('no lines')
+        console.log('no lines')
         const splits = this.feature.DescriptionWithLinks.split(',')
         let i = -1
         for (const split of splits) {
