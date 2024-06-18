@@ -1,5 +1,5 @@
 <template>
-  <me-monster-expansion-list
+  <me-expansion-list
     :headers="headers"
     :items="items"
     :type="model"
@@ -15,7 +15,7 @@
     <template #body="{ item }">
       <me-monster-stat-block :stats="item" />
     </template>
-  </me-monster-expansion-list>
+  </me-expansion-list>
 </template>
 
 <script>

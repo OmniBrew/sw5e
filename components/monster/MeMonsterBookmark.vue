@@ -27,7 +27,7 @@ export default {
   },
   computed: {
     isBookmarked () {
-      return this.$store.getters['user/isBookmarked'](this.type, this.item.RowKey)
+      return this.$store.getters['user/isBookmarked'](this.type, this.item.id)
     },
     color () {
       return this.isBookmarked ? 'grey darken-3' : 'secondary'

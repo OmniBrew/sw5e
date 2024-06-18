@@ -1,9 +1,9 @@
 <template>
   <me-item-page :item="item" type="bestiary">
     <template #header>
-      <me-npc-title :item="item" />
+      <me-monster-title :item="item" />
     </template>
-    <me-npc-stat-block :stats="item" />
+    <me-monster-stat-block :stats="item" />
   </me-item-page>
 </template>
 
