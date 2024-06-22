@@ -22,7 +22,7 @@
     <v-expansion-panel-content>
       <div class="mt-3">
         <slot name="description">
-          <me-html v-if="aspect.html" :content="aspect.html" />
+          <me-html v-if="aspect.html" :content="aspect.shortDescription || aspect.html" />
         </slot>
         <slot>
           <me-cb-aspect-selectable
