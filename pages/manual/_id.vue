@@ -3,9 +3,10 @@
     <v-row v-if="manualIntroduction && $vuetify.breakpoint.mdAndUp" justify="center">
       <v-col cols="12" sm="10" md="8" lg="6" class="text-center">
         <v-img
-          :src="require('~/assets/images/me5e_logo_1200w.png')"
+          :src="require('~/assets/images/sw5e-logo.84b4d7ed.png')"
           alt="Mass Effect 5e logo"
           class="my-10"
+          contain
         />
         <div class="display-2">
           {{ $t('manual.title') }}

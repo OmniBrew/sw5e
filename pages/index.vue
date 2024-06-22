@@ -2,7 +2,8 @@
   <div>
     <section>
       <v-parallax
-        :src="`~/assets/images/parallax/hero.jpg` | getImage"
+        :src="require('~/assets/images/parallax/hero.jpg')"
+        height="550"
       >
         <v-row justify="center">
           <v-col
@@ -17,6 +18,8 @@
               :src="require('~/assets/images/sw5e-logo.84b4d7ed.png')"
               alt="SW5e logo"
               class="mt-10"
+              max-height="220"
+              contain
             />
             <h1 class="sr-only">
               {{ $t('title') }}
@@ -107,8 +110,8 @@
 
     <section>
       <v-parallax
-        :src="require('~/assets/images/parallax/joker.jpg')"
-        alt="mass effect 2 by libbabink"
+        :src="require('~/assets/images/parallax/hometools.jpg')"
+        alt="toolbench background image"
       >
         <v-row justify="center" align="center">
           <v-col
@@ -220,7 +223,7 @@
 
     <section>
       <v-parallax
-        :src="require('~/assets/images/parallax/illusive.jpg')"
+        :src="require('~/assets/images/parallax/homebulletinboard.jpg')"
         alt="The Illusive Man by libbabink"
       >
         <v-row justify="center" align="center">
