@@ -9,6 +9,7 @@ import removeActionId from './removeActionId'
 import titlecase from './titlecase'
 import fidtt from './fidtt'
 import getImage from './getImage'
+import propertiesString from './propertiesString'
 
 const customFilters = {
   article,
@@ -19,7 +20,8 @@ const customFilters = {
   removeActionId,
   titlecase,
   fidtt,
-  getImage
+  getImage,
+  propertiesString
 }
 
 const Filters = {

@@ -2,6 +2,10 @@ export const state = () => ({
 })
 
 export const getters = {
+  // NEED:
+  // Speed reduction (character/index.jsL65)
+  // AC (this file) <-- DONE
+  // stealth disadvantage (profs.jsL15 && MeCsAdIconsL35)
   equippedArmorBreakdown: (state, getters, rootState, rootGetters) => {
     // equipped armor
     const equippedArmor = rootGetters['character/equipment/equippedArmor']
@@ -78,6 +82,7 @@ export const getters = {
       flatBonus
     }
   },
+  /*
   ac: (state, getters, rootState, rootGetters) => {
     const character = rootGetters['character/character']
     if (character.settings.acOverride) {
@@ -99,6 +104,45 @@ export const getters = {
     const equippedAc = runningAc + appliedDex
     const bestAc = Math.max(equippedAc, naturalArmor)
     return bestAc + flatBonus + character.settings.acBonus
+  }
+    */
+  ac: (state, getters, rootState, rootGetters) => {
+    const character = rootGetters['character/character']
+    if (character.settings.acOverride) {
+      return character.settings.acOverride
+    }
+    const dexMod = rootGetters['character/abilities/dexMod']
+    const equippedArmor = rootGetters['character/equipment/equippedArmor']
+    let highestPotentialEquippedArmor = 0
+    for (const ea of equippedArmor) {
+      const acSetMechanic = ea.mechanics.find(j => j.type === 'ac-set')
+      if (!acSetMechanic) {
+        continue
+      }
+      const base = acSetMechanic.value
+      const appliedDexMod = ea.data.type.includes('light')
+        ? dexMod
+        : ea.data.type.includes('medium')
+          ? Math.min(2, dexMod)
+          : 0
+      const calculatedAc = base + appliedDexMod
+      if (highestPotentialEquippedArmor < calculatedAc) {
+        highestPotentialEquippedArmor = calculatedAc
+      }
+    }
+    const flatAcBonus = rootGetters['character/mechanics/mechanics']
+      .filter(i => i.type === 'ac')
+      .reduce((acc, curr) => {
+        return acc + (curr.bonus ? rootGetters['character/mechanics/mcBonus'](curr.bonus) : 0)
+      }, 0)
+    // natural armor
+    const naturalArmorBase = rootGetters['character/mechanics/mechanics']
+      .filter(i => i.type === 'natural-armor')
+      .map(i => i.base + rootGetters[`character/abilities/${i.mod}Mod`])
+      .sort((a, b) => b - a)
+    const naturalArmor = naturalArmorBase[0] || 0
+    const bestAc = Math.max(highestPotentialEquippedArmor, naturalArmor)
+    return bestAc + flatAcBonus + character.settings.acBonus
   }
 }
 

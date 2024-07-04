@@ -26,11 +26,14 @@ export const ListPageHeaders = {
           { key: 'cost', label: 'cost_title', cols: 2, classes: 'd-none d-lg-flex' }
         ],
         armor: [
-          { key: 'name', label: 'name_title', cols: 6, sm: 5, md: 4, lg: 3 },
-          { key: 'cost', label: 'cost_title', cols: 2, sm: 2, md: 1, classes: 'd-none d-sm-flex' },
-          { key: 'placement', label: 'armor_placement_title', cols: 3, sm: 2 },
-          { key: 'type', label: 'type_title', cols: 3, md: 2 },
-          { key: 'notes', label: 'notes_title', cols: 3, lg: 4, classes: 'd-none d-md-flex', sortable: false }
+          { key: 'name', label: 'name_title', cols: 6, sm: 4, md: 4, lg: 3, xl: 2 },
+          { key: 'type', label: 'type_title', cols: 3, md: 2, lg: 1 },
+          { key: 'cost', label: 'cost_title', cols: 2, sm: 2, md: 1, lg: 1, classes: 'd-none d-sm-flex' },
+          { key: 'weight', labelOverride: 'Weight', md: 2, classes: 'd-none d-md-flex' },
+          { key: 'acString', label: 'ac_abbr', cols: 2, sm: 3, md: 3, lg: 3 },
+          { key: 'stealthDisadvantage', label: 'Stealth', xl: 1, classes: 'd-none d-xl-flex', sortable: false },
+          { key: 'properties', labelOverride: 'Properties', lg: 3, classes: 'd-none d-lg-flex', sortable: false },
+          { key: 'source', labelOverride: 'Source', xl: 1, classes: 'd-none d-xl-flex', sortable: false }
         ],
         mods: [
           { key: 'name', label: 'name_title', cols: 6, sm: 5, md: 4, lg: 3 },

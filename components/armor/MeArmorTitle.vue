@@ -5,9 +5,6 @@
   >
     <template #subtitle>
       <me-equipment-subtitle :rarity="item.rarity" :text="subtitle" />
-      <div class="text-caption">
-        {{ item.cost | groupDigits(',') }}
-      </div>
     </template>
   </me-item-title>
 </template>

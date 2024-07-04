@@ -183,6 +183,7 @@ export default {
             { to: '/appendix/random-height-weight', name: this.$t('random_height_weight_title') },
             { to: '/appendix/skills', name: this.$t('skills_title') },
             { to: '/appendix/tool-profs', name: this.$t('tool_profs_title') },
+            { to: '/appendix/armor-properties', name: 'Armor Properties' },
             { to: '/appendix/weapon-properties', name: this.$t('weapon_props_title') }
           ]
         },

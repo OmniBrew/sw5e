@@ -8,6 +8,7 @@
       <span class="font-weight-bold pr-1">Proficient:</span>
       {{ proficient }}
     </div>
+    <!--
     <div class="text-caption">
       <span class="font-weight-bold pr-1">Placement:</span>
       {{ $t(`armor_placements.${item.placement}_title`) }}
@@ -16,9 +17,18 @@
       <span class="font-weight-bold pr-1">Mod Slots:</span>
       {{ item.slots || 0 }}
     </div>
+    -->
+    <div class="text-caption">
+      <span class="font-weight-bold pr-1">AC:</span>
+      {{ item.acString }}
+    </div>
     <div class="text-caption">
       <span class="font-weight-bold pr-1">Cost:</span>
       {{ item.cost | groupDigits(',') }}
+    </div>
+    <div class="text-caption">
+      <span class="font-weight-bold pr-1">Properties:</span>
+      <span class="text-capitalize">{{ item.properties | propertiesString() }}</span>
     </div>
     <me-hr size="2" />
     <div class="mt-1">

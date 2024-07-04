@@ -34,6 +34,23 @@
       </v-menu>
     </div>
     <me-hr size="2" />
+    <v-list dense two-line>
+      <template v-for="item in items">
+        <me-cs-equipment-list-item :key="item.uuid" :item="item" type="armor">
+          <template #title>
+            <me-cs-equipment-title :rarity="item.data.rarity">
+              {{ item.data.name }}
+            </me-cs-equipment-title>
+          </template>
+          <template #subtitle>
+            <me-cs-equipment-subtitle :type="item.data.type" model="armor" />
+            <!--<me-cs-equipment-subtitle :type="item.data.type" model="armor" :additional="{ placement: item.data.placement }" />-->
+          </template>
+        </me-cs-equipment-list-item>
+        <v-divider :key="`divider-${item.uuid}`" />
+      </template>
+    </v-list>
+    <!--
     <div v-for="placement in placements" :key="placement">
       <v-list v-if="itemsOfPlacement(placement).length" dense two-line>
         <v-subheader class="text-uppercase">
@@ -54,6 +71,7 @@
         </template>
       </v-list>
     </div>
+    -->
   </div>
 </template>
 
