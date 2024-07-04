@@ -26,7 +26,7 @@ export default {
         case 'weapons':
           return this.$tc(`weapon_types.${this.type}`, 1)
         case 'armor':
-          return `${this.$t(`armor_types.${this.type}_armor_title`)} (${this.$t(`armor_placements.${this.additional.placement}_title`)})`
+          return `${this.$t(`armor_types.${this.type}_armor_title`)}`
         case 'gear':
           return `${this.$t(`gear_types.${this.type}`)}`
         default:

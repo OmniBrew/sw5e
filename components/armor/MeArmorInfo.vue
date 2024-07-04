@@ -6,6 +6,44 @@
         <div class="text-caption">
           <em>{{ item.flavor }}</em>
         </div>
+
+        <v-row>
+          <v-col cols="12" md="8">
+            <v-row>
+              <v-col>
+                <div v-for="(prop, index) in item.properties" :key="index" class="text-body-2 d-inline-block">
+                  <me-armor-prop :id="prop" />
+                  <div v-if="index + 1 < item.properties.length" class="px-2 d-inline-block">
+                    |
+                  </div>
+                </div>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="6" lg="3">
+                <me-item-stat label="AC">
+                  {{ item.acString }}
+                </me-item-stat>
+              </v-col>
+              <v-col cols="6" lg="3">
+                <me-item-stat label="Cost">
+                  {{ item.cost | groupDigits(',') }}
+                </me-item-stat>
+              </v-col>
+              <v-col cols="6" lg="3">
+                <me-item-stat label="Weight">
+                  {{ item.weight }}
+                </me-item-stat>
+              </v-col>
+              <v-col cols="6" lg="3">
+                <me-item-stat label="Stealth">
+                  {{ item.stealthDisadvantage ? 'Disadvantage' : '-' }}
+                </me-item-stat>
+              </v-col>
+            </v-row>
+          </v-col>
+        </v-row>
+
         <v-progress-linear :value="100" color="secondary" :height="2" class="my-2" />
         <div>
           <me-html :content="item.html" />

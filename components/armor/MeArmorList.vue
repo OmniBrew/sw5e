@@ -12,17 +12,19 @@
         {{ item.name }}
       </div>
     </template>
-    <template #[`header.placement`]="{ item }">
-      {{ $t(`armor_placements.${item.placement}_title`) }}
-    </template>
     <template #[`header.type`]="{ item }">
       {{ $t(`armor_types.${item.type}`) }}
     </template>
-    <template #[`header.notes`]="{ item }">
-      {{ tagsText(item.tags) }}
-    </template>
     <template #[`header.cost`]="{ item }">
       {{ item.cost | groupDigits(',') }}
+    </template>
+    <template #[`header.stealthDisadvantage`]="{ item }">
+      {{ item.stealthDisadvantage ? 'Disadvantage' : '' }}
+    </template>
+    <template #[`header.properties`]="{ item }">
+      <span class="text-capitalize">
+        {{ item.properties | propertiesString() }}
+      </span>
     </template>
     <template #body="{ item }">
       <me-armor-info :item="item" />

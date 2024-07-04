@@ -57,6 +57,7 @@ export const state = () => ({
     mechanics: []
   },
   customArmor: [
+    /*
     // chest
     { id: 'ca-chest-light-2', name: 'Light Chest Armor II', rarity: 'uncommon', placement: 'chest', type: 'light', cost: 8000, slots: 2 },
     { id: 'ca-chest-medium-2', name: 'Medium Chest Armor II', rarity: 'uncommon', placement: 'chest', type: 'medium', cost: 10000, slots: 2 },
@@ -84,6 +85,7 @@ export const state = () => ({
     { id: 'ca-head-light-3', name: 'Light Helmet III', rarity: 'spectre', placement: 'head', type: 'light', cost: 45000, slots: 3 },
     { id: 'ca-head-medium-3', name: 'Medium Helmet III', rarity: 'spectre', placement: 'head', type: 'medium', cost: 45000, slots: 3 },
     { id: 'ca-head-heavy-4', name: 'Heavy Helmet III', rarity: 'spectre', placement: 'head', type: 'heavy', cost: 45000, slots: 3 }
+     */
   ],
   unarmedStrike: {
     type: 'natural-melee',
