@@ -2,7 +2,7 @@ export const Weapons = {
   data () {
     return {
       tierRarity: {
-        1: ['common'],
+        1: ['unenhanced'],
         2: ['common', 'uncommon'],
         3: ['common', 'uncommon', 'rare', 'very_rare'],
         4: ['common', 'uncommon', 'rare', 'very_rare', 'spectre']
@@ -14,7 +14,8 @@ export const Weapons = {
       return this.$store.getters.getData('weapons')
     },
     attackOptions () {
-      const weapons = this.weapons.filter(i => this.tierRarity[this.metaTier].includes(i.rarity) && (this.options.species.id === 'hanar' ? i.properties.includes('light') : true)).map(weapon => this.setWeaponDamage(weapon))
+      const weapons = this.weapons.filter(i => this.tierRarity[this.metaTier].includes(i.rarity))
+      weapons.map(weapon => this.setWeaponDamage(weapon))
       const attacks = []
       for (const weapon of weapons) {
         for (let i = 1; i <= 3; i++) {
@@ -28,7 +29,7 @@ export const Weapons = {
       }
       // dual wielding
       const dualOpts = weapons.filter((weapon) => {
-        return weapon.properties.includes('light') && !weapon.properties.includes('two-handed')
+        return weapon.properties?.includes('light') && !weapon.properties?.includes('two-handed')
       })
       const combinations = []
 
@@ -80,7 +81,7 @@ export const Weapons = {
         damage: this.averageFromDie(weapon.damage.dieType, weapon.damage.dieCount)
       }
       let finalBonus = dexBonus
-      if (weapon.properties.some(r => ['finesse', 'recoil'].includes(r))) {
+      if (weapon.properties?.some(r => ['finesse', 'recoil'].includes(r))) {
         finalBonus = strBonus >= dexBonus ? strBonus : dexBonus
       } else if (weapon.type === 'melee') {
         finalBonus = strBonus

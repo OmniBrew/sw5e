@@ -116,10 +116,10 @@ export default {
   */
   pwa: {
     manifest: {
-      name: 'Mass Effect 5e',
+      name: 'Star Wars 5e',
       lang: 'en',
       theme_color: colors.red.darken4,
-      short_name: 'Mass Effect 5e'
+      short_name: 'Star Wars 5e'
     }
   },
   /*

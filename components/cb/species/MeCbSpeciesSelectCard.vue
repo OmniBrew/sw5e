@@ -1,14 +1,14 @@
 <template>
   <v-card outlined flat>
     <div class="d-flex justify-space-between">
-      <div style="width: 100px">
-        <v-img :src="item.bodyImg" contain />
+      <div style="width: 100px;">
+        <v-img :src="item.bodyImg" contain style="height: 120px;"/>
       </div>
       <v-card-text>
         <me-tpg s="h4">
           {{ item.name }}
         </me-tpg>
-        <p>{{ item.snippet }}</p>
+        <p>{{ item.snippet || item.abilityScoreIncrease }}</p>
         <div class="text-overline">
           {{ speciesBreakdown }}
         </div>
@@ -72,6 +72,9 @@ export default {
     currentValue: {
       type: String,
       default: ''
+    },
+    mySpecies: {
+      type: Object
     }
   },
   data () {
@@ -81,7 +84,8 @@ export default {
   },
   computed: {
     species () {
-      return this.$store.getters.getData('species')
+      return [this.item]
+      // || this.$store.getters.getData('species')
     },
     isCurrent () {
       return this.item.id === this.currentValue

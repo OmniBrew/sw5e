@@ -115,7 +115,7 @@ export default {
       return [this.$store.state.character.species.customSpecies]
     },
     speciesOptions () {
-      return [...this.baseSpecies, ...this.homebrewSpecies].filter(i => i.name.toLowerCase().includes(this.search.toLowerCase()))
+      return [...this.baseSpecies, ...this.homebrewSpecies].filter(i => i.abilityScoreIncrease?.toLowerCase().includes(this.search.toLowerCase()) || i.name?.toLowerCase().includes(this.search.toLowerCase()))
     },
     tashas: {
       get () {

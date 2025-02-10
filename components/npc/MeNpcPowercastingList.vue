@@ -68,7 +68,7 @@ export default {
       if (this.innate) {
         return []
       }
-      const powers = this.powers.filter(i => this.feature.list.includes(i.id))
+      const powers = this.powers.filter(i => this.feature.list?.includes(i.id))
       const list = []
       if (powers.length > 0) {
         const cantrips = powers.filter(i => i.level === 0)

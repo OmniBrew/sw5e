@@ -4,7 +4,7 @@
     <v-row v-if="characters.length === 0">
       <v-col cols="12" class="text-center">
         <div class="text-h4">
-          Welcome to the ME5e Character Builder!
+          Welcome to the SW5e Character Builder!
         </div>
       </v-col>
     </v-row>
@@ -38,7 +38,7 @@ export default {
     await store.dispatch('FETCH_LOTS', ['species', 'classes', 'subclasses'])
     store.dispatch('SET_META', {
       title: 'Character Builder',
-      description: 'Build your own ME5e Character'
+      description: 'Build your own SW5e Character'
     })
   },
   data () {

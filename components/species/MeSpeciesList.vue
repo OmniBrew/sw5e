@@ -5,7 +5,7 @@
         <v-col cols="2" sm="2">
           <v-img
             v-if="$vuetify.breakpoint.smAndUp"
-            :src="`/images/species/species_${item.id}.png`"
+            :src="item.img"
             height="88px"
             width="88px"
             position="top center"
@@ -13,7 +13,7 @@
           />
           <v-avatar v-if="$vuetify.breakpoint.xsOnly" size="48" class="ma-3">
             <v-img
-              :src="`/images/species/species_${item.id}.png`"
+              :src="item.img"
               position="top center"
             />
           </v-avatar>

@@ -56,7 +56,8 @@
             {{ $t('buttons.change_species') }}
           </v-btn>
         </div>
-        <v-img :src="`/images/species/species_${item.id}.png`" height="80vh" contain />
+        <!--v-img :src="`/images/species/species_${item.id}.png`" height="80vh" contain /-->
+        <v-img :src="`${item.img}`" height="80vh" contain />
         <!--<me-species-distinctions :item="item" />-->
       </v-col>
     </v-row>

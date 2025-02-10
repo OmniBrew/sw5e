@@ -10,9 +10,9 @@ export const AbilityScores = {
         cha: 1
       }
       const classStats = {
-        adept: ['wis', 'dex', 'cha'],
-        engineer: ['int', 'dex', 'con'],
-        infiltrator: ['dex', 'int', 'str'],
+        berserker: ['str', 'dex', 'con'],
+        consular: ['wis', 'cha', 'dex'],
+        engineer: ['dex', 'int', 'str'],
         sentinel: ['wis', 'int', 'dex'],
         soldier: ['dex', 'str', 'con'],
         vanguard: ['str', 'wis', 'con']
@@ -22,7 +22,7 @@ export const AbilityScores = {
         : [15, 14, 13, 12, 10, 8]
 
       // Create stat weights
-      const statWeights = classStats[this.options.klass.id]
+      const statWeights = classStats[this.options.klass.id] || ['str', 'dex', 'wis']
       // Set base ability scores & setup the weighted ability selection
       for (const w in this.npc.abilityScores) {
         if (statWeights.includes(w)) {
